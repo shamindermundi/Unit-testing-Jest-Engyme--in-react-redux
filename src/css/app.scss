@@ -4,4 +4,11 @@ body {
   margin: 0;
 }
 
+.main {
+  width: 100%;
+  max-width: 980px;
+  margin: 20px auto 80px;
+  padding: 0 10px;
+}
+
 @import "./header";
