@@ -10,9 +10,9 @@ function App() {
       <Header />
 
       <section className="main">
+        <h1>Unit Testing using jest & enzymes</h1>
         <Headline header="Posts" desc="Click the button to render posts" />
       </section>
-      <h1>Unit Testing using jest & enzymes</h1>
     </header>
   );
 }
