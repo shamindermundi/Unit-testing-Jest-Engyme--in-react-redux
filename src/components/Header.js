@@ -1,9 +1,13 @@
 import React from "react";
 
+import Logo from "../assests/logo.png";
+
 const Header = () => {
   return (
     <div id="header">
-      <h1> Logo</h1>
+      <div className="wrap">
+        <img src={Logo} alt="Logo" />
+      </div>
     </div>
   );
 };
