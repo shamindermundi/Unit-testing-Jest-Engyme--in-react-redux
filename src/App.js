@@ -18,7 +18,7 @@ const App = ({ posts, fetchPosts }) => {
     emitEvent: fetch,
   };
   return (
-    <header className="App">
+    <div className="App" data-test="appComponent">
       <Header />
 
       <section className="main">
@@ -38,7 +38,7 @@ const App = ({ posts, fetchPosts }) => {
           </div>
         )}
       </section>
-    </header>
+    </div>
   );
 };
 
