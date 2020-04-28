@@ -1,20 +1,51 @@
 import React from "react";
-import Header from "./components/header/Index";
+import { connect } from "react-redux";
+import { fetchPosts } from "./actions/Index";
 
+import Header from "./components/header/Index";
 import "./css/app.scss";
 import Headline from "./components/headline/Index";
+import SharedButton from "./components/button/Index";
+import ListItem from "./components/listItem/Index";
 
-function App() {
+const App = ({ posts, fetchPosts }) => {
+  const fetch = () => {
+    fetchPosts();
+  };
+
+  const configButton = {
+    buttonText: "Get posts",
+    emitEvent: fetch,
+  };
   return (
     <header className="App">
       <Header />
 
       <section className="main">
-        <h1>Unit Testing using jest & enzymes</h1>
         <Headline header="Posts" desc="Click the button to render posts" />
+        <SharedButton {...configButton} />
+
+        {posts.length > 0 && (
+          <div>
+            {posts.map((post, index) => {
+              const { title, body } = post;
+              const configListItem = {
+                title,
+                desc: body,
+              };
+              return <ListItem key={index} {...configListItem} />;
+            })}
+          </div>
+        )}
       </section>
     </header>
   );
-}
+};
 
-export default App;
+const mapStateToProps = (state) => {
+  return {
+    posts: state.posts,
+  };
+};
+
+export default connect(mapStateToProps, { fetchPosts })(App);
